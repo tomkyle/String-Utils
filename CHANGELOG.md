@@ -1,6 +1,6 @@
 #Changelog
 
-##1.0.0 and 1.0.1
+##1.0.0 to 1.0.2
 Release Date: 2014-03-10
 
 - Interface `StringProvider`
