@@ -1,12 +1,9 @@
-#My new Package
+#tomykle/String-Utils
 
-If you want to work with TravisCI, rename `.travis.yml.dist` to `.travis.yml`
+Some PHP utility classes, extracted from my melting monolith codebase.
 
-##Requirements
-
-##Installation
-
-##Getting started
-
+##Contents
+- Interface `StringProvider`
+- Class `RandomString`- Class `StopWatch`- Class `TextInterpolation`
 
 
