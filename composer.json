@@ -1,0 +1,21 @@
+{
+    "name":        "tomkyle/string-utils",
+    "type":        "library",
+
+    "description": "Various Helper classes",
+
+    "authors": [
+        {
+            "name":  "Carsten Witt",
+            "email": "tomkyle@posteo.de",
+            "role":  "Developer"
+        }
+    ],
+
+    "autoload": {
+        "psr-4": {
+            "tomkyle\\": "src/"
+        }
+    }
+
+}
