@@ -10,6 +10,12 @@ Some PHP utility classes, extracted from my melting monolith codebase.
 - Class `Entropy`
 
 
+##Testing
+
+Simply issue `phpunit` to run the test suites; you may have to `composer update`first.
+
+
+
 
 
 

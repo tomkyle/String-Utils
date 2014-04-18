@@ -1,6 +1,11 @@
 #Changelog
 
-##1.0.2
+##1.0.4
+Release Date: 2014-04-18
+
+- Added test suite
+
+##1.0.2 and 1.0.3
 Release Date: 2014-04-13
 
 - new `Entropy` class
