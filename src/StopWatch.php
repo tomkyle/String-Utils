@@ -26,9 +26,10 @@ class StopWatch
 
     public function stop( $new_time = false )
     {
-        $result = microtime('float') - $this->start;
+        $now    = microtime('float');
+        $result = $now - $this->start;
         if ( $new_time ) {
-            $this->start = microtime('float');
+            $this->start = $now;
         }
         return $result;
     }
