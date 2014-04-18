@@ -1,18 +1,15 @@
 <?php
 /**
- * Simple PSR-0 Autoloader
+ * test suite bootstrap.
  *
- * Taken from package mjaschen/phpgeo at https://github.com/mjaschen/phpgeo
+ * Tries to include Composer vendor/autoload.php; dies if it does not exist.
  *
  * @category  Location
- * @author    Marcus T. Jaschen <mjaschen@gmail.com>
+ * @author    Carsten Witt <tomkyle@posteo.de>
  */
-spl_autoload_register(
-    function ($class) {
-        $file = __DIR__ . '/../src/' . strtr($class, '\\', '/') . '.php';
-        if (file_exists($file)) {
-            require_once $file;
-            return true;
-        }
-    }
-);
+
+$autoloader = __DIR__ . '/../vendor/autoload.php';
+if (!is_readable( $autoloader )) {
+    die("\nMissing Composer's vendor/autoload.php; run 'composer update' first.\n\n");
+}
+require $autoloader;

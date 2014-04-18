@@ -29,9 +29,12 @@ class RandomString implements StringProvider {
 
 	public function __construct($length = 64)
 	{
+		if ($length % 2 != 0) {
+			throw new \LengthException("Only even length are accepted so far");
+		}
 		$strong = false;
 		do {
-    		$this->value = bin2hex(openssl_random_pseudo_bytes($length / 2, $strong));
+    		$this->value = bin2hex(openssl_random_pseudo_bytes(ceil($length / 2), $strong));
 		} while ( !$strong );
 	}
 

@@ -25,12 +25,17 @@ class Entropy
         $this->setString($str);
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return '' . $this->calculate();
     }
 
-
+    /**
+     * @return float
+     */
     public function __invoke( $str )
     {
         $this->setString( $str );
@@ -38,13 +43,18 @@ class Entropy
     }
 
 
-
+    /**
+     * @return Entropy
+     */
     public function setString( $str )
     {
         $this->str = $str;
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getString( )
     {
         return $this->str;
