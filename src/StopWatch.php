@@ -16,7 +16,7 @@ class StopWatch
 
     public function __construct()
     {
-        $this->start = microtime('float');
+        $this->start = microtime(  true  );
     }
 
     public function __toString()
@@ -26,7 +26,7 @@ class StopWatch
 
     public function stop( $new_time = false )
     {
-        $now    = microtime('float');
+        $now    = microtime( true );
         $result = $now - $this->start;
         if ( $new_time ) {
             $this->start = $now;
