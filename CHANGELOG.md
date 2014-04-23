@@ -1,6 +1,6 @@
 #Changelog
 
-##1.0.5 to 1.0.11
+##1.0.5 to 1.0.12
 Release Date: 2014-04-23
 
 - Integrated with Travis CI, Coveralls and Scrutinizer.
