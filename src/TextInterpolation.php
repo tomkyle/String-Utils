@@ -44,7 +44,6 @@ use \tomkyle\StringProvider;
  *   ?>
  *
  * @author   Carsten Witt <tomkyle@posteo.de>
- * @version  1.0.0-rc1
  */
 class TextInterpolation implements StringProvider
 {
@@ -89,12 +88,13 @@ class TextInterpolation implements StringProvider
     {
         if (is_string($template)) {
             $this->setTemplate( $template );
-        } elseif (is_array($template)) {
-            $this->setContext( $template );
-            return;
+        } elseif (is_array($template)
+        and empty($context)) {
+            $context = $template;
         } else {
             return;
         }
+
         $this->setContext( $context );
     }
 
