@@ -15,5 +15,8 @@ namespace tomkyle;
  */
 interface StringProvider
 {
+	/**
+	 * @return string
+	 */
 	public function __toString();
 }
