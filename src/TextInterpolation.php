@@ -148,6 +148,19 @@ class TextInterpolation implements StringProvider
 
 
 
+    /**
+     * @param  array $context Another context array to be merged
+     * @return TextInterpolation Fluent Interface
+     * @uses   $context
+     */
+    public function mergeContext( array $context = array() )
+    {
+        $this->context = array_merge($this->context, $context);
+        return $this;
+    }
+
+
+
 
     /**
      * @param  string $template Template string
