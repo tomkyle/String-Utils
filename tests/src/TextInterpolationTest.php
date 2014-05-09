@@ -118,6 +118,37 @@ class TextInterpolationTest extends \PHPUnit_Framework_TestCase {
     }
 
 
+    /**
+     * @dataProvider provideStringArray
+     */
+    public function testMethodInterpolate( $value_array )
+    {
+        $tpl = $this->createTestTemplate( $value_array );
+        $ti  = new TextInterpolation( $tpl, $value_array );
+        $this->assertEquals($ti->__toString(), $ti->interpolate($tpl, $value_array) );
+    }
+
+
+
+    /**
+     * @dataProvider provideStringArray
+     */
+    public function testMethodInterpolateShortcut( $value_array )
+    {
+        $tpl = $this->createTestTemplate( $value_array );
+        $ti  = new TextInterpolation( $tpl, $value_array );
+        $this->assertEquals($ti->__toString(), $ti->i($tpl, $value_array) );
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 
