@@ -73,9 +73,39 @@ class TextInterpolationTest extends \PHPUnit_Framework_TestCase {
     public function testContextInterceptorsBackAndForth( $value_array )
     {
         $tpl = $this->createTestTemplate( $value_array );
+
+        $to_be_merged = array(
+            'state' => 'California',
+            'city'  => 'San Francisco'
+        );
+
+
         $ti  = new TextInterpolation( $tpl );
-        $this->assertEquals($value_array, $ti->setContext($value_array)->getContext());
+        $ti->setContext( $value_array  );
+        $ti->mergeContext( $to_be_merged );
+
+        $to_be_tested_against = array_merge( $value_array, $to_be_merged);
+
+        $this->assertEquals($to_be_tested_against, $ti->getContext());
     }
+
+
+
+
+    /**
+     * @dataProvider provideStringArray
+     */
+    public function testMergeContext( $value_array )
+    {
+        $tpl = $this->createTestTemplate( $value_array );
+        $ti  = new TextInterpolation( $tpl );
+        $this->assertEquals($value_array, $ti->mergeContext($value_array)->getContext());
+    }
+
+
+
+
+
 
     /**
      * @dataProvider provideStringArray
@@ -88,9 +118,48 @@ class TextInterpolationTest extends \PHPUnit_Framework_TestCase {
     }
 
 
+    /**
+     * @dataProvider provideStringArray
+     */
+    public function testMethodInterpolate( $value_array )
+    {
+        $tpl = $this->createTestTemplate( $value_array );
+        $ti  = new TextInterpolation( $tpl, $value_array );
+        $this->assertEquals($ti->__toString(), $ti->interpolate($tpl, $value_array) );
+    }
 
 
 
+    /**
+     * @dataProvider provideStringArray
+     */
+    public function testMethodInterpolateShortcut( $value_array )
+    {
+        $tpl = $this->createTestTemplate( $value_array );
+        $ti  = new TextInterpolation( $tpl, $value_array );
+        $this->assertEquals($ti->__toString(), $ti->i($tpl, $value_array) );
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
+     * Creates a simple test template
+     * with the keys of the given array in curly brackets,
+     * divided by a blank space.
+     *
+     * @param  array $array
+     * @return string Something like `{foo} {bar} {field}`
+     */
     public function createTestTemplate( $array )
     {
         $mangle = array();
@@ -104,6 +173,12 @@ class TextInterpolationTest extends \PHPUnit_Framework_TestCase {
 
     }
 
+
+
+    /**
+     * Creates an associative array to be used with TextInterpolation.
+     * @return array
+     */
     public function provideStringArray()
     {
         return array(
