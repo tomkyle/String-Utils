@@ -1,5 +1,10 @@
 #Changelog
 
+##1.0.14
+Release Date: 2014-05-98
+
+- New `mergeContext` method for class `StringProvider`
+
 ##1.0.5 to 1.0.13
 Release Date: 2014-04-23
 
