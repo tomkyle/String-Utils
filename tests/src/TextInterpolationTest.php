@@ -90,7 +90,14 @@ class TextInterpolationTest extends \PHPUnit_Framework_TestCase {
 
 
 
-
+    /**
+     * Creates a simple test template
+     * with the keys of the given array in curly brackets,
+     * divided by a blank space.
+     *
+     * @param  array $array
+     * @return string Something like `{foo} {bar} {field}`
+     */
     public function createTestTemplate( $array )
     {
         $mangle = array();
