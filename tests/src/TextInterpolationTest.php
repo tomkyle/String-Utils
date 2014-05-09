@@ -142,6 +142,12 @@ class TextInterpolationTest extends \PHPUnit_Framework_TestCase {
 
     }
 
+
+
+    /**
+     * Creates an associative array to be used with TextInterpolation.
+     * @return array
+     */
     public function provideStringArray()
     {
         return array(
